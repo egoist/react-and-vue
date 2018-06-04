@@ -4,12 +4,12 @@ const axios = require('axios')
 const chalk = require('chalk')
 
 const getRecentWeek = res => {
-  const lastWeekCount =
+  const rate =
     res.data['daily-trends'].slice(0, 14).reduce((res, v) => res + v, 0) / 14
   const total = res.data.github.stargazers_count
-  const remainingDays = (100000 - total) / lastWeekCount
+  const remainingDays = (100000 - total) / rate
   return {
-    lastWeekCount: parseInt(lastWeekCount, 10),
+    rate: parseInt(rate, 10),
     total,
     remainingDays: remainingDays.toFixed(1)
   }
@@ -45,9 +45,9 @@ const main = async () => {
 
   console.log(
     `${chalk.bold(`- At this rate:`)}\n${chalk.green(
-      `Vue (${vue.lastWeekCount} stars/day)`
+      `Vue (${vue.rate} stars/day)`
     )} will take ${chalk.green(vue.remainingDays)} days\n${chalk.blue(
-      `React (${react.lastWeekCount} stars/day)`
+      `React (${react.rate} stars/day)`
     )} will take ${chalk.blue(
       react.remainingDays
     )} days\nto reach ${chalk.yellow(`100K stars`)} on GitHub.\n`
