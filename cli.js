@@ -15,6 +15,13 @@ const getRecentWeek = res => {
   }
 }
 
+const checkTotal = (data, type) => {
+  if (data.total >= 100000) {
+    console.log(`Game over, ${type} has already reached 100K stars!`)
+    process.exit()
+  }
+}
+
 const main = async () => {
   process.stdout.write('> Fetching data, please wait...')
   const [vue, react] = await Promise.all([
@@ -32,6 +39,10 @@ const main = async () => {
       `Don't take this serious, this is just for fun, we love both React and Vue from the bottom of our hearts!\n`
     )
   )
+
+  checkTotal(vue, 'Vue')
+  checkTotal(react, 'React')
+
   console.log(
     `${chalk.bold(`- At this rate:`)}\n${chalk.green(
       `Vue (${vue.lastWeekCount} stars/week)`
