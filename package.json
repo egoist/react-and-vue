@@ -1,0 +1,22 @@
+{
+  "name": "react-vs-vue",
+  "version": "0.0.3",
+  "description": "just for fun",
+  "repository": {
+    "url": "egoist/react-vs-vue",
+    "type": "git"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "bin": "cli.js",
+  "scripts": {
+    "test": "echo 'no tests!'"
+  },
+  "author": "egoist <0x142857@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "chalk": "^2.4.1"
+  }
+}
