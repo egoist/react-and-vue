@@ -26,6 +26,7 @@ const main = async () => {
   process.stdout.cursorTo(0)
   console.log(chalk.dim(`Don't take this serious, this is just for fun, we love both React and Vue from the bottom of our hearts!\n`))
   console.log(`${chalk.bold(`- At this rate:`)}\n${chalk.green(`Vue (${vue.lastWeekCount} stars/week)`)} will take ${chalk.green(vue.remainingDays)} days\n${chalk.blue(`React (${react.lastWeekCount} stars/week)`)} will take ${chalk.blue(react.remainingDays)} days\nto reach ${chalk.yellow(`100K stars`)} on GitHub.\n`)
+  console.log('source: ' + chalk.dim.underline('https://github.com/egoist/react-vs-vue'))
 }
 
 
