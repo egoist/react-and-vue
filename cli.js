@@ -5,7 +5,7 @@ const chalk = require('chalk')
 
 const getRecentWeek = res => {
   const lastWeekCount =
-    res.data['daily-trends'].slice(0, 7).reduce((res, v) => res + v, 0) / 7
+    res.data['daily-trends'].slice(0, 30).reduce((res, v) => res + v, 0) / 30
   const total = res.data.github.stargazers_count
   const remainingDays = (100000 - total) / lastWeekCount
   return {
