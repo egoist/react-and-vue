@@ -1,17 +1,19 @@
 <template>
-  <transition name="fade" mode="out-in">
-    <div v-if="stats" key="stats">
-      At this rate<br>
-      <span class="vue">Vue</span> ({{ stats.vue.rate }} stars/day) will take <span class="vue">{{ stats.vue.remainingDays }} days</span><br>
-      <span class="react">React</span> ({{ stats.react.rate }} stars/day) will take <span class="react">{{ stats.react.remainingDays }} days</span><br>
-      To reach <span class="target">100K stars</span> on GitHub.
-      <div class="source">
-        - Source: <a target="_blank" href="https://github.com/egoist/react-vs-vue">EGOIST</a><br>
-        - Just for fun.
+  <div class="app">
+    <transition name="fade" mode="out-in">
+      <div v-if="stats" key="stats">
+        At this rate<br>
+        <span class="vue">Vue</span> ({{ stats.vue.rate }} stars/day) will take <span class="vue">{{ stats.vue.remainingDays }} days</span><br>
+        <span class="react">React</span> ({{ stats.react.rate }} stars/day) will take <span class="react">{{ stats.react.remainingDays }} days</span><br>
+        To reach <span class="target">100K stars</span> on GitHub.
+        <div class="source">
+          - Source: <a target="_blank" href="https://github.com/egoist/react-vs-vue">EGOIST</a><br>
+          - Just for fun.
+        </div>
       </div>
-    </div>
-    <div v-else key="loading">Loading...</div>
+      <div v-else key="loading">Loading...</div>
   </transition>
+  </div>
 </template>
 
 <script>
@@ -43,10 +45,8 @@ export default {
 body {
   background: #5f5bd4;
   margin: 0;
-  padding: 40px;
   color: white;
   font-family: 'Source Sans Pro', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 4rem;
   line-height: 1.4;
 }
 
@@ -56,6 +56,11 @@ a {
 </style>
 
 <style scoped>
+.app {
+  padding: 40px;
+  font-size: 4rem;
+}
+
 .vue {
   color: #4fc08d;
 }
@@ -79,5 +84,16 @@ a {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    font-size: 2rem;
+    padding: 10px;
+  }
+
+  .source {
+    font-size: 1rem;
+  }
 }
 </style>
