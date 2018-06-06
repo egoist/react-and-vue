@@ -6,7 +6,8 @@
       <span class="react">React</span> ({{ stats.react.rate }} stars/day) will take <span class="react">{{ stats.react.remainingDays }} days</span><br>
       To reach <span class="target">100K stars</span> on GitHub.
       <div class="source">
-        - Source: <a target="_blank" href="https://github.com/egoist/react-vs-vue">EGOIST</a>
+        - Source: <a target="_blank" href="https://github.com/egoist/react-vs-vue">EGOIST</a><br>
+        - Just for fun.
       </div>
     </div>
     <div v-else key="loading">Loading...</div>
