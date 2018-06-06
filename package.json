@@ -7,16 +7,29 @@
     "type": "git"
   },
   "files": [
-    "cli.js"
+    "cli.js",
+    "lib"
   ],
   "bin": "cli.js",
   "scripts": {
-    "test": "echo 'no tests!'"
+    "test": "echo 'no tests!'",
+    "web": "poi",
+    "build:web": "poi build"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "chalk": "^2.4.1"
+  },
+  "devDependencies": {
+    "poi": "^10.2.3",
+    "typeface-source-sans-pro": "^0.0.54"
+  },
+  "poi": {
+    "html": {
+      "title": "React vs Vue"
+    },
+    "entry": "example/index.js"
   }
 }

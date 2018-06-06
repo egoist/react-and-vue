@@ -1,19 +1,6 @@
 #!/usr/bin/env node
-const readline = require('readline')
-const axios = require('axios')
 const chalk = require('chalk')
-
-const getRecentWeek = res => {
-  const rate =
-    res.data['daily-trends'].slice(0, 14).reduce((res, v) => res + v, 0) / 14
-  const total = res.data.github.stargazers_count
-  const remainingDays = (100000 - total) / rate
-  return {
-    rate: parseInt(rate, 10),
-    total,
-    remainingDays: remainingDays.toFixed(1)
-  }
-}
+const getStats = require('./lib')
 
 const checkTotal = (data, type) => {
   if (data.total >= 100000) {
@@ -24,14 +11,7 @@ const checkTotal = (data, type) => {
 
 const main = async () => {
   process.stdout.write('> Fetching data, please wait...')
-  const [vue, react] = await Promise.all([
-    axios
-      .get(`https://bestofjs-api-v1.now.sh/projects/vuejs/vue`)
-      .then(getRecentWeek),
-    axios
-      .get(`https://bestofjs-api-v1.now.sh/projects/facebook/react`)
-      .then(getRecentWeek)
-  ])
+  const { vue, react } = await getStats()
   process.stdout.clearLine()
   process.stdout.cursorTo(0)
   console.log(
