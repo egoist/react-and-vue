@@ -25,8 +25,16 @@ export default {
   },
 
   async created() {
-    const stats = await getStats()
-    this.stats = stats
+    this.setStats()
+  },
+
+  methods: {
+    async setStats() {
+      this.stats = await getStats()
+      setInterval(async () => {
+        this.stats = await getStats()
+      }, 60000) // 1 minute
+    }
   }
 }
 </script>
