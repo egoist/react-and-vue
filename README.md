@@ -1,9 +1,9 @@
-# react-vs-vue
+# react-and-vue
 
 Don't take this toy serious my fellow React and Vue folks.
 
 ```bash
-npx react-vs-vue
+npx react-and-vue
 ```
 
 ## License

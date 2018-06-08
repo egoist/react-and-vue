@@ -33,7 +33,7 @@ const main = async () => {
     )} days\nto reach ${chalk.yellow(`100K stars`)} on GitHub.\n`
   )
   console.log(
-    'source: ' + chalk.dim.underline('https://github.com/egoist/react-vs-vue')
+    'source: ' + chalk.dim.underline('https://github.com/egoist/react-and-vue')
   )
 }
 

@@ -1,9 +1,9 @@
 {
-  "name": "react-vs-vue",
+  "name": "react-and-vue",
   "version": "0.1.3",
   "description": "just for fun",
   "repository": {
-    "url": "egoist/react-vs-vue",
+    "url": "egoist/react-and-vue",
     "type": "git"
   },
   "files": [
