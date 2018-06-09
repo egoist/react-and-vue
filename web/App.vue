@@ -3,8 +3,8 @@
     <transition name="fade" mode="out-in">
       <div v-if="stats" key="stats">
         At this rate<br>
-        <span class="vue">Vue</span> ({{ stats.vue.rate }} stars/day) will take <span class="vue">{{ stats.vue.remainingDays }} days</span><br>
-        <span class="react">React</span> ({{ stats.react.rate }} stars/day) will take <span class="react">{{ stats.react.remainingDays }} days</span><br>
+        <a href="https://github.com/vuejs/vue" target="_blank" class="vue">Vue</a> ({{ stats.vue.rate }} stars/day) will take <span class="vue">{{ stats.vue.remainingDays }} days</span><br>
+        <a href="https://github.com/facebook/react" target="_blank" class="react">React</a> ({{ stats.react.rate }} stars/day) will take <span class="react">{{ stats.react.remainingDays }} days</span><br>
         To reach <span class="target">100K stars</span> on GitHub.
         <div class="source">
           - Source: <a target="_blank" href="https://github.com/egoist/react-and-vue">EGOIST</a><br>
@@ -67,6 +67,14 @@ a {
 
 .react {
   color: #61dafb;
+}
+
+a.vue,a.react {
+  text-decoration: none;
+}
+
+a.vue:hover,a.react:hover {
+  opacity: .8;
 }
 
 .target {
