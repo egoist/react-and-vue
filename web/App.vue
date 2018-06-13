@@ -3,8 +3,24 @@
     <transition name="fade" mode="out-in">
       <div v-if="stats" key="stats">
         At this rate<br>
-        <a href="https://github.com/vuejs/vue" target="_blank" class="vue">Vue</a> ({{ stats.vue.rate }} stars/day) will take <span class="vue">{{ stats.vue.remainingDays }} days</span><br>
-        <a href="https://github.com/facebook/react" target="_blank" class="react">React</a> ({{ stats.react.rate }} stars/day) will take <span class="react">{{ stats.react.remainingDays }} days</span><br>
+        <a href="https://github.com/vuejs/vue" 
+          target="_blank" 
+          class="vue"
+          :data-balloon="currentLogo('vue') + ' ' + stats.vue.total + ' stars'"
+          data-balloon-pos="up"
+        >
+          Vue
+        </a>
+        ({{ stats.vue.rate }} stars/day) will take <span class="vue">{{ stats.vue.remainingDays }} days</span>
+        <br>
+        <a href="https://github.com/facebook/react"
+        target="_blank"
+        class="react"
+        :data-balloon="currentLogo('react') + ' ' + stats.react.total + ' stars'"
+        data-balloon-pos="up"
+        >
+        React</a>
+        ({{ stats.react.rate }} stars/day) will take <span class="react">{{ stats.react.remainingDays }} days</span><br>
         To reach <span class="target">100K stars</span> on GitHub.
         <div class="source">
           - Source: <a target="_blank" href="https://github.com/egoist/react-and-vue">EGOIST</a><br>
@@ -22,20 +38,29 @@ import getStats from '../lib'
 export default {
   data() {
     return {
-      stats: null
+      stats: null,
     }
   },
 
   async created() {
     this.setStats()
   },
-
+  computed: {
+    currentWinner() {
+      return this.stats.vue.total > this.stats.react.total ? "vue" : "react"
+    }
+  },
   methods: {
     async setStats() {
       this.stats = await getStats()
       setInterval(async () => {
         this.stats = await getStats()
       }, 60000) // 1 minute
+    },
+     currentLogo(lang) {
+       if (this.currentWinner) {
+         return this.currentWinner === lang ? "🏆" : "🥈"
+       }
     }
   }
 }
@@ -73,9 +98,6 @@ a.vue,a.react {
   text-decoration: none;
 }
 
-a.vue:hover,a.react:hover {
-  opacity: .8;
-}
 
 .target {
   color: yellow;
