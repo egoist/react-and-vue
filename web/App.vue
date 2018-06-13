@@ -17,7 +17,7 @@
         target="_blank"
         class="react"
         :data-balloon="currentLogo('react') + ' ' + stats.react.total + ' stars'"
-        data-balloon-pos="up"
+        data-balloon-pos="down"
         >
         React</a>
         ({{ stats.react.rate }} stars/day) will take <span class="react">{{ stats.react.remainingDays }} days</span><br>
@@ -88,10 +88,14 @@ a {
 
 .vue {
   color: #4fc08d;
+  display: inline-block;
+  line-height: 0.8;
 }
 
 .react {
   color: #61dafb;
+  display: inline-block;
+  line-height: 0.8;
 }
 
 a.vue,a.react {
